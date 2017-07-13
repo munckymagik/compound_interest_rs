@@ -5,16 +5,9 @@ use clap::{App, Arg, ArgMatches};
 
 fn compound(principal: f64, annual_rate_percent: f64, period_in_years: i32, compounds_per_year: i32) -> f64 {
     let num_compounds = compounds_per_year * period_in_years;
+    let rate = 1.0 + ((annual_rate_percent / 100.0) / compounds_per_year as f64);
 
-    let annual_rate_fraction = annual_rate_percent / 100.0;
-    let r = 1.0 + (annual_rate_fraction / compounds_per_year as f64);
-
-    let mut p = principal;
-    for _ in 0..num_compounds {
-        p *= r;
-    }
-
-    p
+    (0..num_compounds).fold(principal, |p, _| p * rate)
 }
 
 fn compound_annually(principal: f64, annual_rate_percent: f64, period_in_years: i32) -> f64 {
