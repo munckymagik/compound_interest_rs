@@ -1,6 +1,7 @@
 [package]
+authors = ["Dan Munckton <dan@cultivatehq.com>"]
 name = "compound-interest"
 version = "0.1.0"
-authors = ["Dan Munckton <dan@cultivatehq.com>"]
 
 [dependencies]
+clap = "2.25.0"
