@@ -40,7 +40,7 @@ fn main() {
     let annual_rate_percent = args.value_of("annual_rate_percent").unwrap().parse().unwrap();
     let period_in_years = args.value_of("period_in_years").unwrap().parse().unwrap();
 
-    println!("£{:.3} Anually", compound_annually(principal, annual_rate_percent, period_in_years));
-    println!("£{:.3} Monthly", compound_monthly(principal, annual_rate_percent, period_in_years));
-    println!("£{:.3} Daily", compound_daily(principal, annual_rate_percent, period_in_years));
+    println!("£{:.2} Compounded Anually", compound_annually(principal, annual_rate_percent, period_in_years));
+    println!("£{:.2} Compounded Monthly", compound_monthly(principal, annual_rate_percent, period_in_years));
+    println!("£{:.2} Compounded Daily", compound_daily(principal, annual_rate_percent, period_in_years));
 }
