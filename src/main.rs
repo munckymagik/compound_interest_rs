@@ -3,7 +3,11 @@ extern crate clap;
 
 use clap::{App, Arg, ArgMatches};
 
-fn compound(principal: f64, annual_rate_percent: f64, period_in_years: i32, compounds_per_year: i32) -> f64 {
+fn compound(principal: f64,
+            annual_rate_percent: f64,
+            period_in_years: i32,
+            compounds_per_year: i32)
+            -> f64 {
     let num_compounds = compounds_per_year * period_in_years;
     let rate = 1.0 + ((annual_rate_percent / 100.0) / compounds_per_year as f64);
 
@@ -40,7 +44,10 @@ fn main() {
     let annual_rate_percent = args.value_of("annual_rate_percent").unwrap().parse().unwrap();
     let period_in_years = args.value_of("period_in_years").unwrap().parse().unwrap();
 
-    println!("£{:.2} Compounded Anually", compound_annually(principal, annual_rate_percent, period_in_years));
-    println!("£{:.2} Compounded Monthly", compound_monthly(principal, annual_rate_percent, period_in_years));
-    println!("£{:.2} Compounded Daily", compound_daily(principal, annual_rate_percent, period_in_years));
+    println!("£{:.2} Compounded Anually",
+             compound_annually(principal, annual_rate_percent, period_in_years));
+    println!("£{:.2} Compounded Monthly",
+             compound_monthly(principal, annual_rate_percent, period_in_years));
+    println!("£{:.2} Compounded Daily",
+             compound_daily(principal, annual_rate_percent, period_in_years));
 }
