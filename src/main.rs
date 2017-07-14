@@ -44,14 +44,15 @@ fn main() {
     let annual_rate_percent = args.value_of("annual_rate_percent").unwrap().parse().unwrap();
     let period_in_years = args.value_of("period_in_years").unwrap().parse().unwrap();
 
+    let result_annual = compound_annually(principal, annual_rate_percent, period_in_years);
+    let result_monthly = compound_monthly(principal, annual_rate_percent, period_in_years);
+    let result_daily = compound_daily(principal, annual_rate_percent, period_in_years);
+
     println!("£{:.2} compounded for {} years at an annual rate of {:.2}% is:",
              principal,
              period_in_years,
              annual_rate_percent);
-    println!("* £{:.2} compounded anually",
-             compound_annually(principal, annual_rate_percent, period_in_years));
-    println!("* £{:.2} compounded monthly",
-             compound_monthly(principal, annual_rate_percent, period_in_years));
-    println!("* £{:.2} compounded daily",
-             compound_daily(principal, annual_rate_percent, period_in_years));
+    println!("* £{:.2} compounded anually", result_annual);
+    println!("* £{:.2} compounded monthly", result_monthly);
+    println!("* £{:.2} compounded daily", result_daily);
 }
