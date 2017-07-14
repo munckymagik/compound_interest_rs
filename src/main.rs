@@ -11,7 +11,7 @@ fn compound(principal: f64,
     let num_compounds = compounds_per_year * period_in_years;
     let rate = 1.0 + ((annual_rate_percent / 100.0) / compounds_per_year as f64);
 
-    (0..num_compounds).fold(principal, |p, _| p * rate)
+    principal * rate.powi(num_compounds)
 }
 
 fn compound_annually(principal: f64, annual_rate_percent: f64, period_in_years: i32) -> f64 {
